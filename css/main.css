@@ -33,3 +33,12 @@ h1{
 .num:first-child{
     margin-top: 50px;
 }
+
+.result{
+    border: 1px solid #000;
+    width: 50%;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
