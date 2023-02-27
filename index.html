@@ -9,9 +9,14 @@
     <script src="./js/jquery-3.6.1.min.js"></script>
     <script src="./js/jquery-ui.min.js"></script>
     <script src="./js/main.js"></script>
+    <script type="text/javascript">
+        document.oncontextmenu = function () {
+            return false;
+        }
+    </script>
 </head>
 
-<body>
+<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
     <h1>도어락</h1>
     <div id="numBox">
         <ul class="num">
@@ -32,9 +37,11 @@
         <ul class="num">
             <li>*</li>
             <li>0</li>
-            <li>#</li>
+            <a id="check" href="">#</a>
         </ul>
     </div>
+
+
 </body>
 
 </html>

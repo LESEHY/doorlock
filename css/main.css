@@ -20,10 +20,14 @@ h1{
     
 }
 
-.num li{
+.num li, .num a{
     width: 100px;
     height: 70px;
     border: 1px solid rgb(153, 188, 228);
+}
+
+.num li:hover{
+    cursor: pointer;
 }
 
 .num:first-child{
