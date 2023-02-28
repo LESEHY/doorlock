@@ -44,13 +44,14 @@ $(() => {
                     firstPW = "*165*";
                     impw = firstPW;
                     firstPW = "";
-                    result.html("*165*을 눌러 비밀번호를 변경하세요!");
+                    result.html("비밀번호를 변경하려면 *165*를 누르세요!");
                 }, 1000);
             }
             else if(inpw === impw){
                 result.html("변경할 비밀번호를 입력하세요")
                 inpw = "";
                 pw = "";
+                impw = "";
             }
 
             else if(pw === ""){
@@ -62,13 +63,15 @@ $(() => {
             else if(inpw === pw){
                 result.html("잠금해제");
                 inpw = "";
+                impw = "*165*";
             }
 
             // 비밀번호 일치안할 경우
             else {
                 // 입력 초기화
                 inpw = "";
-                result.html("비밀번호가 일치하지 않습니다.")
+                impw = "";
+                result.html("비밀번호가 일치하지 않습니다.");
             }
         } // else 
 
