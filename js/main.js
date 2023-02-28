@@ -5,8 +5,10 @@ $(() => {
     let firstPW = "0000";
     let inpw = "";
     let impw = "";
-    let pw;
+    let pw = "아무도 입력할 수 없는 내용";
     let changePW = "*253*"
+
+    
 
     // 클릭했을 때 숫자인식
     num.on('click', 'li', function () {
@@ -23,40 +25,55 @@ $(() => {
 
         let result = $(".result")
 
+        
 
-        if (inpw === firstPW || inpw === pw) {
-            // 입력 초기화
+
+        // 4개 이하의 비밀번호로 입력할 경우
+        if (inpw.length < 4) {
             inpw = "";
-            num.find("li").removeClass("active");
-            result.html("잠금해제")
-        } 
-        else if (inpw === changePW) {
-            result.html("새로운 비밀번호로 변경하시려면 *164*를 눌러주세요!");
-            inpw = "";
-            if (inpw === "*164*") {
-                firstPW = "";
+            result.html("최소 4개 이상의 숫자를 입력하세요");
+        }
+        // 4개 이상의 비밀번호를 입력할 경우
+        else {
+            
+            // 비밀번호가 초기번호와 맞을 경우
+            if (inpw === firstPW) {
+                result.html("잠금해제");
                 inpw = "";
-                result.html("새로운 비밀번호를 입력하세요.");
-
-
-                // result.html("비밀번호가 변경되었습니다.");
+                setTimeout(() => {
+                    firstPW = "*165*";
+                    impw = firstPW;
+                    firstPW = "";
+                    result.html("*165*을 눌러 비밀번호를 변경하세요!");
+                }, 1000);
+            }
+            else if(inpw === impw){
+                result.html("변경할 비밀번호를 입력하세요")
+                inpw = "";
+                pw = "";
             }
 
-        } 
-        else {
-            // 입력 초기화
-            inpw = "";
-            num.find("li").removeClass("active");
-            result.html("비밀번호가 일치하지 않습니다.")
-        }
+            else if(pw === ""){
+                pw = inpw;
+                result.html("비밀번호가 저장됐습니다.");
+                inpw = "";
+            }
+
+            else if(inpw === pw){
+                result.html("잠금해제");
+                inpw = "";
+            }
+
+            // 비밀번호 일치안할 경우
+            else {
+                // 입력 초기화
+                inpw = "";
+                result.html("비밀번호가 일치하지 않습니다.")
+            }
+        } // else 
 
 
-        /* 위 코드에서 num.find("li").removeClass("active")는 입력 필드에서 선택한 숫자들의 활성화
-        클래스를 제거하여 초기화합니다. 또한 inpw = "";를 사용하여 비밀번호 입력 변수 inpw를
-        초기화합니다. 따라서, 비밀번호가 일치하지 않았을 때 이미 클릭한 숫자들이 초기화됩니다. */
-
-
-    });
+    }); // click
 
 
 
