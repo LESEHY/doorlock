@@ -6,7 +6,6 @@ $(() => {
     let inpw = "";
     let impw = "";
     let pw = "아무도 입력할 수 없는 내용";
-    let changePW = "*253*"
 
 
 
@@ -15,8 +14,12 @@ $(() => {
         const text = $(this).text();
         // console.log(text);
         inpw += text;
+
         console.log(inpw);
     });
+
+   
+
 
     // # 누를 시 
     $(".num a").click(function (e) {
@@ -28,12 +31,12 @@ $(() => {
 
 
 
-        // 4개 이하의 비밀번호로 입력할 경우
+        // 4개 이하의 비밀번호로 입력할 경우 거부
         if (inpw.length < 4) {
             inpw = "";
             result.html("최소 4개 이상의 숫자를 입력하세요");
         }
-        // 4개 이상의 비밀번호를 입력할 경우
+        // 4개 이상의 비밀번호를 입력할 경우 다음 단계로 넘어감
         else {
 
             // 비밀번호가 초기번호와 맞을 경우
@@ -46,20 +49,20 @@ $(() => {
                     firstPW = "";
                     result.html("*165*를 눌러서 비밀번호를 변경하세요");
                 }, 1000);
-            } 
+            }
             // 비밀번호가 맞은 상태에서 *165*를 눌렀을 때 기존 정보 초기화
             else if (inpw === impw) {
                 result.html("변경할 비밀번호를 입력하세요")
                 inpw = "";
                 pw = "";
                 impw = "";
-            } 
+            }
             // 기존 정보 초기화 후 새로운 비밀번호를 입력했을 때 비밀번호 기억
             else if (pw === "") {
                 pw = inpw;
                 result.html("비밀번호가 저장됐습니다.");
                 inpw = "";
-            } 
+            }
             // (변경한)비밀번호가 일치할 경우 잠금해제 하면서 비밀번호 변경 가능 코드 재생성
             else if (inpw === pw) {
                 result.html("잠금해제");

@@ -30,6 +30,29 @@ h1{
     cursor: pointer;
 }
 
+.num li, .num a{
+    float: left;
+    width: 100px;
+    height: 50px;
+    background: white;
+    border-radius: 20px;
+
+    box-shadow: 3px 3px 3px black;
+
+    transition-duration: .3s;
+}
+
+.num li:active, .num a:active{
+    margin-left: 5px;
+    margin-top: 5px;
+    box-shadow: none;
+    background: gray;
+}
+
+.num a{
+    background: rgb(153, 188, 228);
+}
+
 .num:first-child{
     margin-top: 50px;
 }
