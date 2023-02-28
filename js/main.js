@@ -8,7 +8,7 @@ $(() => {
     let pw = "아무도 입력할 수 없는 내용";
     let changePW = "*253*"
 
-    
+
 
     // 클릭했을 때 숫자인식
     num.on('click', 'li', function () {
@@ -16,6 +16,9 @@ $(() => {
         // console.log(text);
         inpw += text;
         console.log(inpw);
+
+        
+
     });
 
     // # 누를 시 
@@ -25,7 +28,7 @@ $(() => {
 
         let result = $(".result")
 
-        
+
 
 
         // 4개 이하의 비밀번호로 입력할 경우
@@ -35,7 +38,7 @@ $(() => {
         }
         // 4개 이상의 비밀번호를 입력할 경우
         else {
-            
+
             // 비밀번호가 초기번호와 맞을 경우
             if (inpw === firstPW) {
                 result.html("잠금해제");
@@ -46,21 +49,16 @@ $(() => {
                     firstPW = "";
                     result.html("비밀번호를 변경하려면 *165*를 누르세요!");
                 }, 1000);
-            }
-            else if(inpw === impw){
+            } else if (inpw === impw) {
                 result.html("변경할 비밀번호를 입력하세요")
                 inpw = "";
                 pw = "";
                 impw = "";
-            }
-
-            else if(pw === ""){
+            } else if (pw === "") {
                 pw = inpw;
                 result.html("비밀번호가 저장됐습니다.");
                 inpw = "";
-            }
-
-            else if(inpw === pw){
+            } else if (inpw === pw) {
                 result.html("잠금해제");
                 inpw = "";
                 impw = "*165*";
