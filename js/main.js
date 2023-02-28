@@ -16,9 +16,6 @@ $(() => {
         // console.log(text);
         inpw += text;
         console.log(inpw);
-
-        
-
     });
 
     // # 누를 시 
@@ -47,24 +44,30 @@ $(() => {
                     firstPW = "*165*";
                     impw = firstPW;
                     firstPW = "";
-                    result.html("비밀번호를 변경하려면 *165*를 누르세요!");
+                    result.html("*165*를 눌러서 비밀번호를 변경하세요");
                 }, 1000);
-            } else if (inpw === impw) {
+            } 
+            // 비밀번호가 맞은 상태에서 *165*를 눌렀을 때 기존 정보 초기화
+            else if (inpw === impw) {
                 result.html("변경할 비밀번호를 입력하세요")
                 inpw = "";
                 pw = "";
                 impw = "";
-            } else if (pw === "") {
+            } 
+            // 기존 정보 초기화 후 새로운 비밀번호를 입력했을 때 비밀번호 기억
+            else if (pw === "") {
                 pw = inpw;
                 result.html("비밀번호가 저장됐습니다.");
                 inpw = "";
-            } else if (inpw === pw) {
+            } 
+            // (변경한)비밀번호가 일치할 경우 잠금해제 하면서 비밀번호 변경 가능 코드 재생성
+            else if (inpw === pw) {
                 result.html("잠금해제");
                 inpw = "";
                 impw = "*165*";
             }
 
-            // 비밀번호 일치안할 경우
+            // 비밀번호 일치안할 경우 정보 초기화
             else {
                 // 입력 초기화
                 inpw = "";
