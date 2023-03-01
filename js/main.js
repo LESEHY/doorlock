@@ -1,4 +1,6 @@
 $(() => {
+
+    // js 최종
     console.log("정상작동 중");
 
     let num = $(".num");
